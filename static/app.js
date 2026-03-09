@@ -59,6 +59,10 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('sidebar').dataset.collapsed = 'true';
     }
 
+    // Init Theme
+    const savedTheme = localStorage.getItem('auditIqTheme') || 'dark';
+    applyTheme(savedTheme);
+
     // Keyboard bindings
     document.getElementById('searchInput').addEventListener('keydown', e => {
         if (e.key === 'Enter' && !state.analyzing) startAnalysis();
@@ -73,6 +77,23 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
+
+// ── Theme Toggle ─────────────────────────────────────────────────────────────
+function applyTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    const label = document.getElementById('themeLabel');
+    if (label) {
+        label.textContent = theme === 'dark' ? 'Light Mode' : 'Dark Mode';
+    }
+}
+
+function toggleTheme() {
+    const current = document.documentElement.getAttribute('data-theme') || 'dark';
+    const next = current === 'dark' ? 'light' : 'dark';
+    applyTheme(next);
+    localStorage.setItem('auditIqTheme', next);
+}
 
 
 // ── Health check ─────────────────────────────────────────────────────────────
