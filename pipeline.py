@@ -294,7 +294,10 @@ class AnalysisPipeline:
         return self.db.get_history(limit=limit)
 
     def get_analysis(self, analysis_id: int) -> dict | None:
-        return self.db.get_analysis(analysis_id)
+        data = self.db.get_analysis(analysis_id)
+        if data and "company_name" in data:
+            data["session_id"] = self._make_session_id(data["company_name"])
+        return data
 
     def get_stats(self) -> dict:
         return self.db.get_stats()

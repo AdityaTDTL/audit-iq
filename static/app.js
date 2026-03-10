@@ -296,7 +296,7 @@ async function loadPastAnalysis(id) {
                 company:      { name: json.data.company_name },
                 audit_report: result,
                 summary:      {},
-                session_id:   null,
+                session_id:   json.data.session_id || null,
             });
             switchView('analyze');
 
