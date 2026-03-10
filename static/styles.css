@@ -267,7 +267,8 @@ body::before {
 .sidebar[data-collapsed="true"] .nav-btn,
 .sidebar[data-collapsed="true"] .history-section-label,
 .sidebar[data-collapsed="true"] .history-item,
-.sidebar[data-collapsed="true"] .status-indicator {
+.sidebar[data-collapsed="true"] .status-indicator,
+.sidebar[data-collapsed="true"] .theme-label {
   white-space: nowrap;
   opacity: 0;
   pointer-events: none;
@@ -279,7 +280,8 @@ body::before {
 .sidebar[data-collapsed="true"]:hover .nav-btn,
 .sidebar[data-collapsed="true"]:hover .history-section-label,
 .sidebar[data-collapsed="true"]:hover .history-item,
-.sidebar[data-collapsed="true"]:hover .status-indicator {
+.sidebar[data-collapsed="true"]:hover .status-indicator,
+.sidebar[data-collapsed="true"]:hover .theme-label {
   opacity: 1;
   pointer-events: auto;
   transition: opacity var(--t-med) 0.1s;
